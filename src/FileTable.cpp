@@ -351,7 +351,7 @@ bool FileExists(char *path)
     handle = _findfirst(path, &fileinfo);
     _findclose(handle);
 
-    return handle == -1 ? false : strcmp(fileinfo.name, strrchr(path, '\\') + 1) == 0;  //filename must match case
+    return handle == -1 ? false : _strcmpi(fileinfo.name, strrchr(path, '\\') + 1) == 0;
 }
 
 unsigned long GetFileID(char *path)
